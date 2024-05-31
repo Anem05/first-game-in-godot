@@ -416,6 +416,21 @@ sources/0 = SubResource("TileSetAtlasSource_ashvg")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cn5tm"]
 
+[sub_resource type="Animation" id="Animation_apgth"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(370, 52)]
+}
+
 [sub_resource type="Animation" id="Animation_bm7kf"]
 resource_name = "move"
 length = 1.5
@@ -431,21 +446,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(370, 52), Vector2(462, 52)]
-}
-
-[sub_resource type="Animation" id="Animation_apgth"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(370, 52)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xuk5v"]
@@ -468,7 +468,7 @@ offset_bottom = -125.0
 theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
 theme_override_fonts/font = ExtResource("2_nlliu")
 theme_override_font_sizes/font_size = 8
-text = "You collected X coins."
+text = "Your Net worth is X coins."
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -496,22 +496,54 @@ position = Vector2(74, 141)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_cn5tm")
 
+[node name="Coins2" type="Node" parent="."]
+
+[node name="Coin" parent="Coins2" instance=ExtResource("4_28cek")]
+position = Vector2(73, 68)
+
+[node name="Coin2" parent="Coins2" instance=ExtResource("4_28cek")]
+position = Vector2(217, 69)
+
+[node name="Coin3" parent="Coins2" instance=ExtResource("4_28cek")]
+position = Vector2(232, 69)
+
+[node name="Coin4" parent="Coins2" instance=ExtResource("4_28cek")]
+position = Vector2(104, -44)
+
+[node name="Coin5" parent="Coins2" instance=ExtResource("4_28cek")]
+position = Vector2(503, 37)
+
+[node name="Coin10" parent="Coins2" instance=ExtResource("4_28cek")]
+position = Vector2(487, 37)
+
+[node name="Coin6" parent="Coins2" instance=ExtResource("4_28cek")]
+position = Vector2(757, -25)
+
+[node name="Coin7" parent="Coins2" instance=ExtResource("4_28cek")]
+position = Vector2(776, -25)
+
+[node name="Coin8" parent="Coins2" instance=ExtResource("4_28cek")]
+position = Vector2(795, -25)
+
+[node name="Coin9" parent="Coins2" instance=ExtResource("4_28cek")]
+position = Vector2(584, -108)
+
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("4_28cek")]
-position = Vector2(73, 68)
+position = Vector2(87, 68)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("4_28cek")]
-position = Vector2(217, 69)
+position = Vector2(152, 69)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("4_28cek")]
-position = Vector2(232, 69)
+position = Vector2(168, 69)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("4_28cek")]
-position = Vector2(104, -44)
+position = Vector2(72, -28)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("4_28cek")]
-position = Vector2(503, 37)
+position = Vector2(578, 66)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("4_28cek")]
 position = Vector2(757, -25)
@@ -524,6 +556,9 @@ position = Vector2(795, -25)
 
 [node name="Coin9" parent="Coins" instance=ExtResource("4_28cek")]
 position = Vector2(584, -108)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(552, -108)
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -542,6 +577,9 @@ autoplay = "move"
 [node name="Slime" parent="." instance=ExtResource("6_l0s6b")]
 position = Vector2(529, 81)
 
+[node name="Slime2" parent="." instance=ExtResource("6_l0s6b")]
+position = Vector2(153, -1)
+
 [node name="Labels" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="Labels"]
@@ -552,7 +590,7 @@ offset_bottom = 100.0
 theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
 theme_override_fonts/font = ExtResource("7_8cblx")
 theme_override_font_sizes/font_size = 8
-text = "Space to jump."
+text = "اضغط Space للقفز"
 
 [node name="Label2" type="Label" parent="Labels"]
 offset_left = 368.0
@@ -562,7 +600,7 @@ offset_bottom = 96.0
 theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
 theme_override_fonts/font = ExtResource("7_8cblx")
 theme_override_font_sizes/font_size = 8
-text = "Falling hurts..."
+text = "السقوط مؤلم... "
 
 [node name="Label3" type="Label" parent="Labels"]
 offset_left = 704.0
@@ -572,7 +610,7 @@ offset_bottom = -30.0
 theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
 theme_override_fonts/font = ExtResource("7_8cblx")
 theme_override_font_sizes/font_size = 8
-text = "Almost there..."
+text = "هااااانت..."
 
 [node name="Label4" type="Label" parent="Labels"]
 offset_left = 520.0
@@ -581,6 +619,6 @@ offset_right = 616.0
 offset_bottom = -145.0
 theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
 theme_override_fonts/font = ExtResource("7_8cblx")
-theme_override_font_sizes/font_size = 8
-text = "Great job!"
+theme_override_font_sizes/font_size = 10
+text = "كفو علييك!"
 horizontal_alignment = 1

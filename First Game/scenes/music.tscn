@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://4kg150o2entl"]
 
-[ext_resource type="AudioStream" uid="uid://m73dm4jhs3eq" path="res://assets/music/time_for_adventure.mp3" id="1_q0dvm"]
+[ext_resource type="AudioStream" uid="uid://b8ckldmppaud4" path="res://assets/music/كنت ميتا (( النسخة الأصلية )) موسى العميرة.mp3" id="1_h0nvf"]
 
 [node name="Music" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_q0dvm")
+stream = ExtResource("1_h0nvf")
+volume_db = 6.667
 autoplay = true
 bus = &"Music"
